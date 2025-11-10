@@ -66,7 +66,13 @@ fun Main() {
 
         Box(Modifier.fillMaxWidth()) {
             Button(onClick = {
-            }) { Text("NAVIGATE TO SECONDARY ACTIVITY") }
+                val intent = Intent(context, PracticalTest01Var04SecondaryActivity::class.java)
+                    .putExtra("nume", text1)
+                    .putExtra("grupa", text2)
+                context.startActivity(intent)
+                text1 = ""
+                text2 = ""
+            }) { Text("Navigate to second activity") }
         }
 
         Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
