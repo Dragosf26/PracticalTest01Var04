@@ -106,6 +106,13 @@ fun Main() {
 
         Box(Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
             Button(onClick = {
+                if (text1.isNotEmpty() && text2.isNotEmpty()) {
+                    val sIntent = Intent(context, PracticalTest01Var04Service::class.java)
+                        .putExtra("nume", text1)
+                        .putExtra("grupa", text2)
+                    context.startService(sIntent)
+                }
+
                 if ((checked1 && text1.isEmpty()) || (checked2 && text2.isEmpty())) {
                     Toast.makeText(activity, "Eroare", Toast.LENGTH_SHORT).show()
                 } else {
